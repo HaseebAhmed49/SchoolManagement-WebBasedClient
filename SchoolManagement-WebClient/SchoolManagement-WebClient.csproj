@@ -7,4 +7,20 @@
     <RootNamespace>SchoolManagement_WebClient</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Microsoft.AspNet.WebApi.Client" />
+    <None Remove="Newtonsoft.Json" />
+    <None Remove="Data\" />
+    <None Remove="Views\Course\" />
+    <None Remove="Data\ViewModels\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNet.WebApi.Client" Version="5.2.9" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Data\" />
+    <Folder Include="Views\Course\" />
+    <Folder Include="Data\ViewModels\" />
+  </ItemGroup>
 </Project>

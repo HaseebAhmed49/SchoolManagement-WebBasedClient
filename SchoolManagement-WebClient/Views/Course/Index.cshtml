@@ -1,0 +1,44 @@
+﻿@using SchoolManagement_WebClient.Data.ViewModels
+@model IEnumerable<CoursewithInstructorVM>
+
+@{
+    ViewData["Title"] = "Courses with Instructors";
+}
+
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+
+        <table class="table">
+            <thead>
+                <tr class="text-center">
+                    <th>@Html.DisplayNameFor(model => model.Title)</th>
+                    <th>@Html.DisplayNameFor(model => model.Credits)</th>
+                    <th>@Html.DisplayNameFor(model => model.InstructorNames)</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td class="align-middle">
+                            @Html.DisplayFor(modelItem => item.Title)
+                        </td>
+                        <td class="align-middle">
+                            @Html.DisplayFor(modelItem => item.Credits)
+                        </td>
+                        <td class="align-middle">
+                            @foreach (var instructor in item.InstructorNames)
+                            {
+                                <div class="column text-center">
+                                    <a class="text-center">@instructor.ToString()</a>
+                                </div>
+                            }
+                        </td>
+                        }
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    </div>
+</div>

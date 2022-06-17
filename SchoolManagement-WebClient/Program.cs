@@ -1,4 +1,7 @@
-﻿var builder = WebApplication.CreateBuilder(args);
+﻿using System.Net.Http.Headers;
+using SchoolManagement_WebClient.Data;
+
+var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
@@ -24,5 +27,13 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
-app.Run();
+// Establish Connection with WebAPI
+HttpClientCustom.client.BaseAddress = new Uri("https://localhost:5001");
 
+// Specify headers
+var val = "application/json";
+var media = new MediaTypeWithQualityHeaderValue(val);
+HttpClientCustom.client.DefaultRequestHeaders.Accept.Clear();
+HttpClientCustom.client.DefaultRequestHeaders.Accept.Add(media);
+
+app.Run();
