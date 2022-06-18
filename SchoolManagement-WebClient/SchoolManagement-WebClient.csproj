@@ -13,6 +13,7 @@
     <None Remove="Data\" />
     <None Remove="Views\Course\" />
     <None Remove="Data\ViewModels\" />
+    <None Remove="Data\Services\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNet.WebApi.Client" Version="5.2.9" />
@@ -22,5 +23,6 @@
     <Folder Include="Data\" />
     <Folder Include="Views\Course\" />
     <Folder Include="Data\ViewModels\" />
+    <Folder Include="Data\Services\" />
   </ItemGroup>
 </Project>

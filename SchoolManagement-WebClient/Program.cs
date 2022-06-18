@@ -1,10 +1,12 @@
 ﻿using System.Net.Http.Headers;
 using SchoolManagement_WebClient.Data;
+using SchoolManagement_WebClient.Data.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddTransient<CourseServices>();
 
 var app = builder.Build();
 
