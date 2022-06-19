@@ -5,6 +5,7 @@ namespace SchoolManagement_WebClient.Data.ViewModels
 {
 	public class CourseVM
 	{
+		public int id { get; set; }
 		public string Title { get; set; }
 
 		public int Credits { get; set; }
@@ -14,7 +15,9 @@ namespace SchoolManagement_WebClient.Data.ViewModels
 
 	public class CoursewithInstructorVM
 	{
-		public string Title { get; set; }
+        public int id { get; set; }
+
+        public string Title { get; set; }
 
 		public int Credits { get; set; }
 

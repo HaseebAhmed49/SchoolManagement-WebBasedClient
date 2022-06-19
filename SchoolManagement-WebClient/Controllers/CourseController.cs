@@ -47,7 +47,6 @@ namespace SchoolManagement_WebClient.Controllers
             if (!ModelState.IsValid)
             {
                 var departmentDropdownsData = _service.GetInstructorDropdownsValues();
-
                 ViewBag.Departments = new SelectList(departmentDropdownsData.departments, "Id", "Name");
                 return View(course);
             }
@@ -58,6 +57,26 @@ namespace SchoolManagement_WebClient.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        public async Task<IActionResult> Delete(int id)
+        {
+            var action = $"api/Course/get-courses-with-instructors-by-id/{id}";
+            var request = HttpClientCustom.client.GetAsync(action);
+            var response = request.Result.Content.ReadAsStringAsync();
+            if (response.Result == null) return View("Not Found");
+            return View(response.Result);
+        }
+
+        [HttpDelete,ActionName("Delete")]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            var action = $"api/Course/get-courses-with-instructors-by-id/{id}";
+            var request = HttpClientCustom.client.GetAsync(action);
+            var response = request.Result.Content.ReadAsStringAsync();
+            if (response.Result == null) return View("Not Found");
+            action = $"delete-course-by-id/{id}";
+            request = HttpClientCustom.client.DeleteAsync(action);
+            response = request.Result.Content.ReadAsStringAsync();
+            return RedirectToAction(nameof(Index));
+        }
     }
 }
-
