@@ -24,4 +24,3 @@ namespace SchoolManagement_WebClient.Data.ViewModels
 		public List<string> InstructorNames { get; set; }
 	}
 }
-

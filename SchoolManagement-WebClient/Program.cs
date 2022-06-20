@@ -27,7 +27,7 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Course}/{action=Index}/{id?}");
 
 // Establish Connection with WebAPI
 HttpClientCustom.client.BaseAddress = new Uri("https://localhost:5001");

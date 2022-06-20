@@ -59,10 +59,10 @@ namespace SchoolManagement_WebClient.Controllers
 
         public async Task<IActionResult> Delete(int id)
         {
-            var action = $"api/Course/get-courses-with-instructors-by-id/{id}";
+            var action = $"api/Course/get-courses-with-department-by-id/{id}";
             var request = HttpClientCustom.client.GetAsync(action);
-            var response = request.Result.Content.ReadAsStringAsync();
-            if (response.Result == null) return View("Not Found");
+            var response = request.Result.Content.ReadAsAsync<Course>();
+            if (response.Result == null) return View("NotFound");
             return View(response.Result);
         }
 

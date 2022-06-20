@@ -14,7 +14,7 @@ namespace SchoolManagement_WebClient.Models
         public int Credits { get; set; }
 
         [Required(ErrorMessage = "Department is required")]
-        public int? DepartmentId { get; set; }
+        public int DepartmentId { get; set; }
     }
 }
 
